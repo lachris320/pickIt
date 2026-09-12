@@ -1,0 +1,19 @@
+{
+  "name": "PickIt — Pickleball Session Manager",
+  "short_name": "PickIt",
+  "description": "Open-play pickleball session manager with paddle queue, rotation recommendations, and a live scorekeeper.",
+  "start_url": "/pickIt/",
+  "scope": "/pickIt/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0B0F0C",
+  "theme_color": "#0B0F0C",
+  "icons": [
+    {
+      "src": "/pickIt/ic_pickleball_logo.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    }
+  ]
+}
