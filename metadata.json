@@ -1,0 +1,8 @@
+{
+  "name": "Remix Pickleball Session Manager",
+  "description": "Intelligent open-play pickleball session manager with digital paddle queue, explainable rotation recommendations, and contextual live scorekeeper.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
