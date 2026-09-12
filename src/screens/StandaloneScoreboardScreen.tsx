@@ -100,6 +100,7 @@ export const StandaloneScoreboardScreen: React.FC = () => {
             <div className="grid grid-cols-2 gap-2">
               <button
                 onClick={() => launchStandaloneScoreboard('TEAM_A')}
+                data-testid="first_server_team_a_button"
                 className={`py-2 rounded-lg text-xs font-black uppercase tracking-wider border-2 transition-all active:scale-[0.98] ${
                   match.servingTeam === 'TEAM_A'
                     ? 'bg-[#0E282B] border-[#00E5FF] text-[#00E5FF]'
@@ -110,6 +111,7 @@ export const StandaloneScoreboardScreen: React.FC = () => {
               </button>
               <button
                 onClick={() => launchStandaloneScoreboard('TEAM_B')}
+                data-testid="first_server_team_b_button"
                 className={`py-2 rounded-lg text-xs font-black uppercase tracking-wider border-2 transition-all active:scale-[0.98] ${
                   match.servingTeam === 'TEAM_B'
                     ? 'bg-[#2B1F0E] border-[#FF9100] text-[#FF9100]'

@@ -22,6 +22,7 @@ export const PickleballGameEngine = {
       startTime: Date.now(),
       scoreA: 0,
       scoreB: 0,
+      firstServingTeam,
       servingTeam: firstServingTeam,
       serverNumber: 2,
       teamAServer1: teamA.player1,
@@ -160,7 +161,8 @@ export const PickleballGameEngine = {
       current.teamA,
       current.teamB,
       current.targetScore,
-      current.winByTwo
+      current.winByTwo,
+      current.firstServingTeam
     );
 
     for (const event of previousEvents) {
@@ -190,6 +192,7 @@ export const PickleballGameEngine = {
       startTime: Date.now() - 15 * 60 * 1000,
       scoreA,
       scoreB,
+      firstServingTeam: 'TEAM_A',
       servingTeam: winner,
       serverNumber: 1,
       teamAServer1: teamA.player1,

@@ -71,6 +71,7 @@ export interface Match {
   endTime?: number | null;
   scoreA: number;
   scoreB: number;
+  firstServingTeam: TeamId; // team that served first; needed to replay/undo correctly
   servingTeam: TeamId;
   serverNumber: number; // 1 or 2 (starts at 2 for 0-0-2)
   teamAServer1: Player;
