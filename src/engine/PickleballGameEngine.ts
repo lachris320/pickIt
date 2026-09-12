@@ -1,4 +1,4 @@
-import { Match, Team, TeamId, CourtSide, RallyEvent } from '../types';
+import type { Match, Team, TeamId, CourtSide, RallyEvent } from '../types';
 
 export const PickleballGameEngine = {
   createMatch(
@@ -80,6 +80,10 @@ export const PickleballGameEngine = {
         newServer = current.currentServer.id === servingTeamObj.player1.id
           ? servingTeamObj.player2
           : servingTeamObj.player1;
+
+        // Partners always stand on opposite courts. No point was scored (nobody moves),
+        // so Server 2 serves from the side diagonally opposite Server 1 -> flip the side.
+        newServingSide = current.servingSide === 'RIGHT' ? 'LEFT' : 'RIGHT';
 
         newReceiver = newServingSide === 'RIGHT' ? receivingTeamObj.player1 : receivingTeamObj.player2;
         description = `Fault. Second Server: ${newServer.name}`;
