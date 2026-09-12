@@ -16,3 +16,9 @@
 local.properties
 .env
 debug.keystore
+
+# Web (Vite / Node)
+node_modules/
+/dist
+*.local
+npm-debug.log*
