@@ -6,9 +6,12 @@ export const PickleballGameEngine = {
     teamA: Team,
     teamB: Team,
     targetScore: number = 11,
-    winByTwo: boolean = true
+    winByTwo: boolean = true,
+    firstServingTeam: TeamId = 'TEAM_A'
   ): Match {
-    // Official start: Serving team begins on Server 2 (0-0-2)
+    // Official start: Serving team begins on Server 2 (0-0-2), on the Right court.
+    const servingTeamObj = firstServingTeam === 'TEAM_A' ? teamA : teamB;
+    const receivingTeamObj = firstServingTeam === 'TEAM_A' ? teamB : teamA;
     return {
       id: `match_${Date.now()}_${courtId}`,
       courtId,
@@ -19,12 +22,12 @@ export const PickleballGameEngine = {
       startTime: Date.now(),
       scoreA: 0,
       scoreB: 0,
-      servingTeam: 'TEAM_A',
+      servingTeam: firstServingTeam,
       serverNumber: 2,
       teamAServer1: teamA.player1,
       teamBServer1: teamB.player1,
-      currentServer: teamA.player1,
-      currentReceiver: teamB.player1,
+      currentServer: servingTeamObj.player1,
+      currentReceiver: receivingTeamObj.player1,
       servingSide: 'RIGHT',
       rallyHistory: [],
       isCompleted: false,

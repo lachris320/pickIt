@@ -163,7 +163,7 @@ export const SessionHubScreen: React.FC = () => {
 
           <div className="flex items-center gap-2 w-full sm:w-auto">
             <button
-              onClick={launchStandaloneScoreboard}
+              onClick={() => launchStandaloneScoreboard()}
               className="flex-1 sm:flex-none bg-[#1F2F22] hover:bg-[#2A402E] text-pickleball-lime border border-pickleball-lime/40 font-bold px-4 py-2 rounded-xl text-xs transition-colors"
               data-testid="launch_standalone_scoreboard_button"
             >

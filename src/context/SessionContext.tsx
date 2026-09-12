@@ -109,7 +109,7 @@ interface SessionContextType {
   completeMatch: (courtId: number, finalScoreA: number, finalScoreB: number) => void;
   abandonMatch: (courtId: number) => void;
   toggleCourtPause: (courtId: number) => void;
-  launchStandaloneScoreboard: () => void;
+  launchStandaloneScoreboard: (firstServingTeam?: TeamId) => void;
   recordStandaloneRally: (winningTeam: TeamId) => void;
   undoStandaloneRally: () => void;
 }
@@ -525,7 +525,7 @@ export const SessionProvider: React.FC<{ children: React.ReactNode }> = ({ child
     });
   };
 
-  const launchStandaloneScoreboard = () => {
+  const launchStandaloneScoreboard = (firstServingTeam: TeamId = 'TEAM_A') => {
     const p1: Player = {
       id: 's1',
       name: 'Team A Player 1',
@@ -544,7 +544,10 @@ export const SessionProvider: React.FC<{ children: React.ReactNode }> = ({ child
     const match = PickleballGameEngine.createMatch(
       0,
       { id: 'TEAM_A', player1: p1, player2: p2 },
-      { id: 'TEAM_B', player1: p3, player2: p4 }
+      { id: 'TEAM_B', player1: p3, player2: p4 },
+      11,
+      true,
+      firstServingTeam
     );
     setStandaloneMatch(match);
     setCurrentScreen({ type: 'STANDALONE_SCOREBOARD', match });

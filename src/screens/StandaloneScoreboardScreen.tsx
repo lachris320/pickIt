@@ -59,7 +59,7 @@ export const StandaloneScoreboardScreen: React.FC = () => {
           </div>
 
           <button
-            onClick={launchStandaloneScoreboard}
+            onClick={() => launchStandaloneScoreboard()}
             className="p-1.5 rounded-lg bg-pickleball-surface hover:bg-pickleball-surfaceHighlight border border-pickleball-border text-mutedText hover:text-highContrast"
             title="Reset Game"
           >
@@ -90,6 +90,37 @@ export const StandaloneScoreboardScreen: React.FC = () => {
             </div>
           </div>
         </div>
+
+        {/* First Server selector — only before the first rally is recorded */}
+        {match.rallyHistory.length === 0 && (
+          <div className="bg-pickleball-surface border border-pickleball-border rounded-xl p-3">
+            <div className="text-[10px] font-bold text-mutedText uppercase tracking-wider mb-2">
+              First Server
+            </div>
+            <div className="grid grid-cols-2 gap-2">
+              <button
+                onClick={() => launchStandaloneScoreboard('TEAM_A')}
+                className={`py-2 rounded-lg text-xs font-black uppercase tracking-wider border-2 transition-all active:scale-[0.98] ${
+                  match.servingTeam === 'TEAM_A'
+                    ? 'bg-[#0E282B] border-[#00E5FF] text-[#00E5FF]'
+                    : 'bg-[#0F1C18] border-pickleball-border text-mutedText hover:border-[#00E5FF]/40'
+                }`}
+              >
+                Team A
+              </button>
+              <button
+                onClick={() => launchStandaloneScoreboard('TEAM_B')}
+                className={`py-2 rounded-lg text-xs font-black uppercase tracking-wider border-2 transition-all active:scale-[0.98] ${
+                  match.servingTeam === 'TEAM_B'
+                    ? 'bg-[#2B1F0E] border-[#FF9100] text-[#FF9100]'
+                    : 'bg-[#1C150F] border-pickleball-border text-mutedText hover:border-[#FF9100]/40'
+                }`}
+              >
+                Team B
+              </button>
+            </div>
+          </div>
+        )}
 
         {/* Tactical Court Diagram */}
         <section>
@@ -162,7 +193,7 @@ export const StandaloneScoreboardScreen: React.FC = () => {
               Final Score: {match.scoreA} - {match.scoreB}
             </div>
             <button
-              onClick={launchStandaloneScoreboard}
+              onClick={() => launchStandaloneScoreboard()}
               className="mt-3 bg-pickleball-lime text-[#132200] font-bold py-2 px-5 rounded-xl text-xs"
             >
               Play Again
